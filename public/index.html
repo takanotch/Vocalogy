@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+
+<html lang="jp">
+    <head>
+        <meta charset="utf-8">
+        <title>Vocalogy</title>
+        <meta name="description" content="プロジェクトセカイ収録楽曲のオリジナルver.の世界を堪能できる世界">
+
+        <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="images/vocalogy-favicon2.png">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+    </head>
+    <body>
+        <header class="page-header wrapper">
+            <h1>
+                <a href="https://vocalogy-b93c2.web.app/"><img class="logo" src="images/vocalogylogo-1.png" alt="proWOrigin"></a>
+              </h1>
+              <nav>
+                <ul class="main-nav">
+                  <li><a href='TopPlay.html'>Top Play</button></li>
+                  <li><a href='Scene.html'>Scene</a></li>
+                  <li><a href='TimeStamp.html'>TimeStamp</a></li>
+                </ul>
+              </nav>
+        </header>
+        <ol id="thumbnail"></ol>
+        <footer>
+            <div id="player"></div>
+        </footer>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+var reader = new FileReader();
+var ytWidth = 320;
+var ytHeight = 180; 
+
+// 埋め込むyoutubeのIDを指定
+var ytData = [{'title': "'1'", 'Id': 'fobQOAOAdoE'}, {'title': '39Music!', 'Id': 'OuLZlZ18APQ'}, {'title': '88☆彡', 'Id': '505rBX9MNcQ'}, {'title': 'AiNoMaterial', 'Id': 'YsVmtXmpGEI'}, {'title': 'AkunoMeshitukai', 'Id': 'yzpNpaS0uLc'}, {'title': 'AkunoMusume', 'Id': 'W77q-kK8iA8'}, {'title': 'AlienAlien', 'Id': '2t1NMRse6aI'}, {'title': 'Alive', 'Id': 'y7RfoyBJxCg'}, {'title': 'AlterEgo', 'Id': 'DlIREQyaxu8'}, {'title': 'Anamanaguchi', 'Id': 'NocXEwsJGOQ'}, {'title': 'AokuKakero', 'Id': '_qbKRIwkTCc'}, {'title': 'AsagaoNoTirukoroni', 'Id': 'ugs4oVUNZ-o'}, {'title': "AtGod'sMercy", 'Id': 'b2GJcYBoVyg'}, {'title': 'AumNoBeats', 'Id': 'SiqjnFhLq2U'}, {'title': 'AwakeNow', 'Id': 'gtYydJJtQdg'}, {'title': 'BRING_IT_ON', 'Id': 'oEkGC2HV7rc'}, {'title': 'BeatEater', 'Id': 'Rcc_BreWEMI'}, {'title': 'BecauseYouAreHere', 'Id': 'ygY2qObZv24'}, {'title': 'BecomingPotatoes', 'Id': 'Dun11cIEo9s'}, {'title': 'BitterChocoDecoration', 'Id': 'XCyKJD6uQyg'}, {'title': 'BlackRockShooter', 'Id': 'YjOzaIXEoPA'}, {'title': 'BlessYourBreath', 'Id': 'a-Nf3QUFkOU'}, {'title': 'Blessing', 'Id': 'E4tIHBx7bqc'}, {'title': 'BluePaint', 'Id': '_j5rd9kZIZw'}, {'title': 'BoccaDeLaVerita', 'Id': 'wp9Z2wZ-2bs'}, {'title': 'BokuraMadaUnderground', 'Id': 'nBteO-bU78Y'}, {'title': 'BoukenNoShoWasDeleted', 'Id': 'vqiULULdvMA'}, {'title': 'BrainFluidExplosionGirl', 'Id': 'Ey_NHZNYTeE'}, {'title': 'BrandNewDay', 'Id': '2KrCmAWrrKI'}, {'title': 'Bug', 'Id': '2Ii7UBMxWVw'}, {'title': 'BurikiNoDance', 'Id': '5l_Uv5VtY9g'}, {'title': 'ButterflyOnYourRightShoulder', 'Id': '9gRWXcyAfBI'}, {'title': 'Cendrillon', 'Id': 'mXfnndMDFPs'}, {'title': 'Charles', 'Id': 'TA5OFS_xX0c'}, {'title': 'ChildrenRecords', 'Id': 'oh9UGmqtdMg'}, {'title': 'ChururiraChururiraDaddadda!', 'Id': '_j0kfGNwIlw'}, {'title': 'Cinema', 'Id': 'EEbWRjavSVw'}, {'title': 'ColorOfDrops', 'Id': 'i5rl-NGSYoo'}, {'title': 'Cosmospice', 'Id': 'pu1gbwsB9Os'}, {'title': 'Cutlery', 'Id': 'HHhFX9zUV2s'}, {'title': 'DONUTHOLE', 'Id': 'qnX2CdOBcDI'}, {'title': 'DUNE', 'Id': 'AS4q9yaWJkI'}, {'title': 'DanceRobotDance', 'Id': 'g7dvpD_zlIM'}, {'title': 'DarlingDance', 'Id': 'Rkrm5foi188'}, {'title': 'DearDoppelganger', 'Id': 'grdy6rLbQ-c'}, {'title': "Devil'sManner", 'Id': 'IfL-bmSrueE'}, {'title': 'Docter=FunkBeat', 'Id': 'CPxxurEcGTw'}, {'title': 'Don’tFightTheMusic', 'Id': 'dU-dFS-B6Hg'}, {'title': 'Doramaturugi-', 'Id': 'jJzw1h5CR-I'}, {'title': 'DreaminChuchu', 'Id': 'WdHRGH1Qv70'}, {'title': 'DropPopCandy', 'Id': '4sq2lPNxi7M'}, {'title': 'ECHO', 'Id': 'cQKGUgOfD8U'}, {'title': "Earth'sLastConfession", 'Id': 's8KBk8ZRH54'}, {'title': 'Fixer', 'Id': 'srH34Tjjo9U'}, {'title': 'Flyer!', 'Id': 'nfpYhYtHuKo'}, {'title': 'Forward', 'Id': 'crCS77wqxTI'}, {'title': 'Fragile', 'Id': 'a_rrj1Xh5LI'}, {'title': 'FromTokyo', 'Id': 'mMiLWxuffdQ'}, {'title': 'FromYtoY', 'Id': 'CDTiyUm5ggM'}, {'title': 'Garland', 'Id': 'SXC2wO1XdMI'}, {'title': 'GhostRule', 'Id': 'KushW6zvazM'}, {'title': 'Gimme×Gimme', 'Id': 'ERo-sPa1a5g'}, {'title': 'GlorySteadyGo!', 'Id': 'Y-QhzXC9NbI'}, {'title': 'GoodByeSengen', 'Id': 'dHXC_ahjtEE'}, {'title': 'GreenlightsSerenade', 'Id': 'XSLhsjepelI'}, {'title': 'GunjoSanka', 'Id': 'sgZjbk9eH6g'}, {'title': 'HanaWoUtau', 'Id': 'gmIcg1EHIac'}, {'title': 'HandInHand', 'Id': 'RKtoreimcQ8'}, {'title': 'HappyHalloween', 'Id': '1DcgczDzQPk'}, {'title': 'HappySynthesizer', 'Id': 'xOKplMgHxxA'}, {'title': 'HatedByLifeItself', 'Id': '0HYm60Mjm0k'}, {'title': 'HatsuneTenchikaibyakuShinwa', 'Id': '8J6SMoVd5BY'}, {'title': 'HeartRate', 'Id': 'q2PiY-5sTlE'}, {'title': 'Hello-HowAreYou', 'Id': '-M4sAQYi6r4'}, {'title': 'HelloPlanet', 'Id': 'oVb6Gkf-IJM'}, {'title': 'HelloWorld!', 'Id': 'B1nUc7LfZYA'}, {'title': 'Hibana', 'Id': 'hxSg2Ioz3LM'}, {'title': 'Hibikase', 'Id': 'TkroHwQYpFE'}, {'title': 'HitorinboEnvy', 'Id': 'UKVioegPPds'}, {'title': 'HopesAndTearsAtTheEndMark', 'Id': 'r3FFOl-LAM8'}, {'title': 'HosizoraNoMelody', 'Id': 'VznMASce0CM'}, {'title': 'HurtingForAVeryHurtfulPain', 'Id': 'dBa8emykxEo'}, {'title': 'I-aruFanClub', 'Id': 'oBgADhsOoog'}, {'title': 'IDSMILE', 'Id': 'X_6EPkvIAGg'}, {'title': 'IF', 'Id': 'Xt1x1s2eAno'}, {'title': 'IWantToBeYourHeart', 'Id': 'hZFBTnzKa54'}, {'title': 'IceDrop', 'Id': 'WXvm5XfkXrk'}, {'title': 'Identity', 'Id': 'M9moY0hEJRE'}, {'title': "IdolShin'eitai", 'Id': '4QL9tLfVFJg'}, {'title': 'IhuDoDo', 'Id': 'xGNQOqtGU_E'}, {'title': 'Ikanaide', 'Id': 'L0tcMxp8Iy8'}, {'title': 'InfinitelyGray', 'Id': 'cwLlHFMlBNQ'}, {'title': 'IntenceSingingOfHatsuneMiku', 'Id': 'MFEaIgMkR_0'}, {'title': 'JackpotSadGirl', 'Id': 'B2llCEKbxwA'}, {'title': 'JishoMushoku', 'Id': 'yPFcDt4y0Dg'}, {'title': 'Judas', 'Id': '3pl9alka_-A'}, {'title': 'JunkyNightTownOrchestra', 'Id': 'E1PGiyRjqkU'}, {'title': 'JustBeFriends', 'Id': 'rR_ZDyhi7Eg'}, {'title': 'KING', 'Id': 'cm-l2h6GB8Q'}, {'title': 'KageroDays', 'Id': 'EMGyiiTC7sg'}, {'title': 'KanadeTomosuSora', 'Id': 'GTlQhMRHXIg'}, {'title': 'KarakuriPierrot', 'Id': 'xxFkW3PCT5M'}, {'title': 'KeitaiRenwa', 'Id': 'bNagYg_YGbU'}, {'title': 'KimiiroMarineSnow', 'Id': 'NwSriMki_UA'}, {'title': 'Kokoroyoho', 'Id': 'dJf4wCdLU18'}, {'title': 'KuyamuToKaiteMirai', 'Id': 'r2OS97F6P_U'}, {'title': 'LastScore', 'Id': 'zAWu9BK_V5M'}, {'title': 'Law-evadingRock', 'Id': 'u5mHVUwDf_0'}, {'title': 'Leia-Remind', 'Id': 'e0ddGWxyhUQ'}, {'title': "LostOne'sWeeping", 'Id': '8oBV3jPTW4s'}, {'title': 'LoveMeVoveMeLoveMe', 'Id': 'NTrm_idbhUk'}, {'title': 'LoveTrial', 'Id': 'TXzfQ0cP1P0'}, {'title': "LowerOne'sEeyes", 'Id': '3sEptl-psU0'}, {'title': 'LukaLuka☆NightFever', 'Id': 'ScSW9C3DF18'}, {'title': 'MATORYOSHKA', 'Id': 'HOz-9FzIDf0'}, {'title': 'MKDR', 'Id': '8pGRdRhjX3o'}, {'title': 'MORE_MORE_JUMP！', 'Id': 'SKbutknpQ_I'}, {'title': 'MachineGunPoemDoll', 'Id': 'UgZFpO_Y6qo'}, {'title': 'Magicnumber', 'Id': 'fzRWpcvPJYo'}, {'title': 'Marshmary', 'Id': 'qtuX4cHk-vE'}, {'title': 'Melt', 'Id': 'o1jAMSQyVPc'}, {'title': 'Meltdown', 'Id': 'dSw8CucthGc'}, {'title': 'MeltyLandNightmare', 'Id': 'ZEy36W1xX8c'}, {'title': 'Meru', 'Id': 'Jak2qiq_jJo'}, {'title': 'MetamoRibon', 'Id': 'PulLO9CgBE0'}, {'title': 'MikanseiSanka', 'Id': 'PmRtXlhzgAU'}, {'title': 'MikumikuNiShiteageru', 'Id': '-N5XNRNhdcA'}, {'title': 'MilkCrownOnSonechka', 'Id': 'zRar5r3TieE'}, {'title': 'MiraclePaint', 'Id': 'gqPWXe0dCC4'}, {'title': 'Mirai', 'Id': 'zTokBPAXHW4'}, {'title': 'MoonRight', 'Id': 'SaX0By61S3U'}, {'title': 'NansensuBungaku', 'Id': 'OskXF3s0UT8'}, {'title': 'Near', 'Id': '7uacnNTk7I8'}, {'title': 'NeedLe', 'Id': 'buoYwfZG4vQ'}, {'title': 'NextNest', 'Id': 'ajlDAQeWQKE'}, {'title': 'Niccori^^SurveyTeamTheme', 'Id': 'C_Fc1x_aeFQ'}, {'title': 'NightSkyPatrolOfTomorrow', 'Id': 'XogSflwXgpw'}, {'title': 'Nomado', 'Id': 'mKfwzOgorXs'}, {'title': 'Nostalogic', 'Id': 'HzGXGjt-JAY'}, {'title': 'ODDS&ENDS', 'Id': 'HUzLUGKwQJc'}, {'title': 'ONESELF', 'Id': '0ahJ3_4hcL0'}, {'title': 'Odo', 'Id': 'QuLwvlw6_uU'}, {'title': 'Okinimesumama', 'Id': 'nROvY9uiYYk'}, {'title': 'OnTheRocks', 'Id': 'hk1L0ZV2bVc'}, {'title': 'OnceUponADream', 'Id': 'S84mvlha5Fc'}, {'title': 'OrderMade', 'Id': 'sHXrqptOU2s'}, {'title': 'OtomeKaibo', 'Id': '7zwCIz-Ohn4'}, {'title': 'Our16bitWars', 'Id': 'XKTDNQ2sTvM'}, {'title': 'PatchworkStaccato', 'Id': 'p2Irc9NPCtk'}, {'title': 'PaⅢSENSATION', 'Id': 'OMQNhcGZbX4'}, {'title': 'PeakyPeaky', 'Id': 'GWuI8LXceYc'}, {'title': 'PianoxFortexScandal', 'Id': 'JQTl7IvOX0E'}, {'title': 'Positive☆DanceTime', 'Id': 'FT91CrPPAqc'}, {'title': 'PulseOfTheMeteor', 'Id': '8Zds1FvEtKw'}, {'title': 'RADDOGS', 'Id': 'ZMbWDpC1N7s'}, {'title': 'Rain&Petra', 'Id': 'PdfdOhYVU40'}, {'title': 'RainbowStories', 'Id': 'WztzykQSkgM'}, {'title': 'Ray', 'Id': 'YkP0JMByjRM'}, {'title': 'ReadySteady', 'Id': 'XAg1jDDG49Y'}, {'title': 'Regeneration', 'Id': 'purlnb5K_jM'}, {'title': 'RemoteControl', 'Id': '1st0XSY0VKQ'}, {'title': 'Roki', 'Id': 'Xg-qfsKN2_E'}, {'title': 'RollinGirl', 'Id': 'vnw8zURAxkU'}, {'title': 'Romeo&Cinderella', 'Id': 'kp-plPYAPq8'}, {'title': 'STAGE_OF_SEKAI', 'Id': 'YVD1RLI7klc'}, {'title': 'Salamander', 'Id': '-H2PCK7DJsQ'}, {'title': 'SaribitotatiNoWaltz', 'Id': 'jNBRyo54Tks'}, {'title': 'Sekai', 'Id': '9vyIPWBeRes'}, {'title': 'Senbonzakura', 'Id': 'shs0rAiwsGQ'}, {'title': 'ShoujoRei', 'Id': 'JW3N-HvU0MA'}, {'title': 'ShowtimeRuler', 'Id': 'uDBVetc5JKo'}, {'title': 'SickOfHouse', 'Id': 'B4A-edPIz-s'}, {'title': 'SixTrillionYearsAndOvernightStory', 'Id': 'Om3MTou2kPg'}, {'title': 'SolosongOfaThousandYears', 'Id': 'IudXfIgXH-s'}, {'title': 'Soudatta!', 'Id': 'gfdzYIPjhBU'}, {'title': 'Stella', 'Id': 'AL6hWKN0WQo'}, {'title': 'SweetMagic', 'Id': 'wZ1gEDquuyQ'}, {'title': 'THE_END_OF_HATSUNE_MIKU', 'Id': 'VWVtIg5cdDU'}, {'title': 'TOKIO_FUNKA', 'Id': 'bcLYdxMusHc'}, {'title': 'TelecasterB-Boy', 'Id': 'i-DZukWFR64'}, {'title': 'TellYourWorld', 'Id': 'PqJNc9KVIZE'}, {'title': 'TenshiNoClover', 'Id': 'lFJA9muTUDM'}, {'title': 'Teo', 'Id': 'bmkY2yc1K7Q'}, {'title': 'TheEmpErroR(Full)', 'Id': 'AcXpEKKaH8A'}, {'title': 'TheWorldHasn’tEvenStartedYet', 'Id': '1s8NNPgdl5g'}, {'title': 'TimeMachine', 'Id': 'EgOWe9ByNaE'}, {'title': 'TokugawaCupNoodleKinshirei', 'Id': 'jPXAgWkqbo4'}, {'title': 'TondemoWonders', 'Id': 'dBQg24mx45Y'}, {'title': 'TrafficJam', 'Id': 'oUevY6uH4Qg'}, {'title': 'Tricologe', 'Id': 'BPh4m2VnfNo'}, {'title': 'UmiyuriKaiteitan', 'Id': '7JANm3jOb2k'}, {'title': 'UnknownMother-Goose', 'Id': 'P_CSdxSGfaA'}, {'title': 'Ura-OmoteLovers', 'Id': 'b_cuMcDWwsI'}, {'title': 'Usseewa', 'Id': 'hh3W_FjUn9s'}, {'title': 'UtakataMirai', 'Id': 'juOJFUVF12k'}, {'title': 'Vampire', 'Id': 'e1xCOsgWG0M'}, {'title': 'Venom', 'Id': 'oRJBwaZ59fQ'}, {'title': 'Villain', 'Id': 'p9FJXfGHtDA'}, {'title': 'VivaHappy', 'Id': 'WiUjG9fF3zw'}, {'title': 'Wa-Wa-World', 'Id': 'okJ9Vk6owG8'}, {'title': 'WaitingForTheWeatherToClear', 'Id': 'wvlUWjqGQSA'}, {'title': 'WorldIsMine', 'Id': 'qrwVthk38b0'}, {'title': 'WorldWideWonder', 'Id': '6NdOqVypgCM'}, {'title': 'WorldsEndDanceHall', 'Id': 'ZB75e7vzX0I'}, {'title': 'YobanashiDeceive', 'Id': 'aPDaFGqMX4I'}, {'title': 'YoruNiKakeru', 'Id': 'dPE663X2LEs'}, {'title': 'YureiTokyo', 'Id': 'lWl5viCqGSc'}]
+
+ytBaseUrl = 'https://www.youtube.com/embed/';
+
+listid = '/PL2Vp3vLbv9xi-alVjmUYdvY79sri45X1R';
+// listid2 = '/PL2Vp3vLbv9xgIGSU2DjOgQtQlqlgMac0u';
+
+csvfile_list = ["'1'.txt", '39Music!.txt', '88☆彡.txt', 'AiNoMaterial.txt', 'AkunoMeshitukai.txt', 'AkunoMusume.txt', 'AlienAlien.txt', 'Alive.txt', 'AlterEgo.txt', 'Anamanaguchi.txt', 'AokuKakero.txt', 'AsagaoNoTirukoroni.txt', "AtGod'sMercy.txt", 'AumNoBeats.txt', 'AwakeNow.txt', 'BRING_IT_ON.txt', 'BeatEater.txt', 'BecauseYouAreHere.txt', 'BecomingPotatoes.txt', 'BitterChocoDecoration.txt', 'BlackRockShooter.txt', 'BlessYourBreath.txt', 'Blessing.txt', 'BluePaint.txt', 'BoccaDeLaVerita.txt', 'BokuraMadaUnderground.txt', 'BoukenNoShoWasDeleted.txt', 'BrainFluidExplosionGirl.txt', 'BrandNewDay.txt', 'Bug.txt', 'BurikiNoDance.txt', 'ButterflyOnYourRightShoulder.txt', 'Cendrillon.txt', 'Charles.txt', 'ChildrenRecords.txt', 'ChururiraChururiraDaddadda!.txt', 'Cinema.txt', 'ColorOfDrops.txt', 'Cosmospice.txt', 'Cutlery.txt', 'DONUTHOLE.txt', 'DUNE.txt', 'DanceRobotDance.txt', 'DarlingDance.txt', 'DearDoppelganger.txt', "Devil'sManner.txt", 'Docter=FunkBeat.txt', 'Don’tFightTheMusic.txt', 'Doramaturugi-.txt', 'DreaminChuchu.txt', 'DropPopCandy.txt', 'ECHO.txt', "Earth'sLastConfession.txt", 'Fixer.txt', 'Flyer!.txt', 'Forward.txt', 'Fragile.txt', 'FromTokyo.txt', 'FromYtoY.txt', 'Garland.txt', 'GhostRule.txt', 'Gimme×Gimme.txt', 'GlorySteadyGo!.txt', 'GoodByeSengen.txt', 'GreenlightsSerenade.txt', 'GunjoSanka.txt', 'HanaWoUtau.txt', 'HandInHand.txt', 'HappyHalloween.txt', 'HappySynthesizer.txt', 'HatedByLifeItself.txt', 'HatsuneTenchikaibyakuShinwa.txt', 'HeartRate.txt', 'Hello-HowAreYou.txt', 'HelloPlanet.txt', 'HelloWorld!.txt', 'Hibana.txt', 'Hibikase.txt', 'HitorinboEnvy.txt', 'HopesAndTearsAtTheEndMark.txt', 'HosizoraNoMelody.txt', 'HurtingForAVeryHurtfulPain.txt', 'I-aruFanClub.txt', 'IDSMILE.txt', 'IF.txt', 'IWantToBeYourHeart.txt', 'IceDrop.txt', 'Identity.txt', "IdolShin'eitai.txt", 'IhuDoDo.txt', 'Ikanaide.txt', 'InfinitelyGray.txt', 'IntenceSingingOfHatsuneMiku.txt', 'JackpotSadGirl.txt', 'JishoMushoku.txt', 'Judas.txt', 'JunkyNightTownOrchestra.txt', 'JustBeFriends.txt', 'KING.txt', 'KageroDays.txt', 'KanadeTomosuSora.txt', 'KarakuriPierrot.txt', 'KeitaiRenwa.txt', 'KimiiroMarineSnow.txt', 'Kokoroyoho.txt', 'KuyamuToKaiteMirai.txt', 'LastScore.txt', 'Law-evadingRock.txt', 'Leia-Remind.txt', "LostOne'sWeeping.txt", 'LoveMeVoveMeLoveMe.txt', 'LoveTrial.txt', "LowerOne'sEeyes.txt", 'LukaLuka☆NightFever.txt', 'MATORYOSHKA.txt', 'MKDR.txt', 'MORE_MORE_JUMP！.txt', 'MachineGunPoemDoll.txt', 'Magicnumber.txt', 'Marshmary.txt', 'Melt.txt', 'Meltdown.txt', 'MeltyLandNightmare.txt', 'Meru.txt', 'MetamoRibon.txt', 'MikanseiSanka.txt', 'MikumikuNiShiteageru.txt', 'MilkCrownOnSonechka.txt', 'MiraclePaint.txt', 'Mirai.txt', 'MoonRight.txt', 'NansensuBungaku.txt', 'Near.txt', 'NeedLe.txt', 'NextNest.txt', 'Niccori^^SurveyTeamTheme.txt', 'NightSkyPatrolOfTomorrow.txt', 'Nomado.txt', 'Nostalogic.txt', 'ODDS&ENDS.txt', 'ONESELF.txt', 'Odo.txt', 'Okinimesumama.txt', 'OnTheRocks.txt', 'OnceUponADream.txt', 'OrderMade.txt', 'OtomeKaibo.txt', 'Our16bitWars.txt', 'PatchworkStaccato.txt', 'PaⅢSENSATION.txt', 'PeakyPeaky.txt', 'PianoxFortexScandal.txt', 'Positive☆DanceTime.txt', 'PulseOfTheMeteor.txt', 'RADDOGS.txt', 'Rain&Petra.txt', 'RainbowStories.txt', 'Ray.txt', 'ReadySteady.txt', 'Regeneration.txt', 'RemoteControl.txt', 'Roki.txt', 'RollinGirl.txt', 'Romeo&Cinderella.txt', 'STAGE_OF_SEKAI.txt', 'Salamander.txt', 'SaribitotatiNoWaltz.txt', 'Sekai.txt', 'Senbonzakura.txt', 'ShoujoRei.txt', 'ShowtimeRuler.txt', 'SickOfHouse.txt', 'SixTrillionYearsAndOvernightStory.txt', 'SolosongOfaThousandYears.txt', 'Soudatta!.txt', 'Stella.txt', 'SweetMagic.txt', 'THE_END_OF_HATSUNE_MIKU.txt', 'TOKIO_FUNKA.txt', 'TelecasterB-Boy.txt', 'TellYourWorld.txt', 'TenshiNoClover.txt', 'Teo.txt', 'TheEmpErroR(Full).txt', 'TheWorldHasn’tEvenStartedYet.txt', 'TimeMachine.txt', 'TokugawaCupNoodleKinshirei.txt', 'TondemoWonders.txt', 'TrafficJam.txt', 'Tricologe.txt', 'UmiyuriKaiteitan.txt', 'UnknownMother-Goose.txt', 'Ura-OmoteLovers.txt', 'Usseewa.txt', 'UtakataMirai.txt', 'Vampire.txt', 'Venom.txt', 'Villain.txt', 'VivaHappy.txt', 'Wa-Wa-World.txt', 'WaitingForTheWeatherToClear.txt', 'WorldIsMine.txt', 'WorldWideWonder.txt', 'WorldsEndDanceHall.txt', 'YobanashiDeceive.txt', 'YoruNiKakeru.txt', 'YureiTokyo.txt'];
+
+// ↑textファイル名のリスト
+var csv = 'proWthinkdata/';
+
+
+
+// サムネイル画像の埋め込み準備
+var thumbInsert = '';
+let data_array = [];
+for(var i = 0; i < ytData.length; i++) {
+    txt_data = csv +  csvfile_list[i];
+    // data_array = import_csv(csv_data)
+
+    // reader.readAsText(csv_data[0]); ローカルファイルは使えない
+    // if (i < 200 ) {
+      thumbInsert += '<table class="container wrapper"><td class="mainpeg"><a id="'+i+'" href="' + ytBaseUrl + ytData[i]['id'] + listid +'">';
+    // } else {
+    //   thumbInsert += '<table class="container wrapper"><td class="mainpeg"><a id="'+i+'" href="' + ytBaseUrl + ytData[i]['id'] + listid2 +'">';
+    // }
+        thumbInsert += '<div class="title">'+ (i+1) +'.  '+ ytData[i]['title'] +'</div>' 
+        thumbInsert += '<img class="thumb" src="http://img.youtube.com/vi/' + ytData[i]['Id'] + '/mqdefault.jpg" alt="" /></td>';
+        thumbInsert += '<td class="comments"><div id="list" class="box"><div class="boxtitle">comments</div><object data="'+txt_data+'" type="text/plain" width="500px" height="250px"></object></div></td>';
+        // comments_view(data_array);
+        // thumbInsert += '<div id='+ i +'>'+i+'</div>'
+        thumbInsert += '</a></table>';
+        
+}
+
+var ytPlayer;
+// YouTube Player APIを読み込む
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// API読み込み後にプレーヤーを埋め込む
+function onYouTubeIframeAPIReady() {
+	ytPlayer = new YT.Player('player', {
+		height: ytHeight,
+		width: ytWidth,
+		videoId: ytData[0]['id'],
+        playerVars: {
+				rel: 0, //再生動画と同じチャンネルから関連動画を選択
+				modestbranding: 1, //YouTubeロゴを表示しない
+				loop: 0,
+        mute: 1,
+				list: 'PL2Vp3vLbv9xi-alVjmUYdvY79sri45X1R', //youtubeのID
+        
+        
+			}
+	});
+}
+// 動画の再生
+
+function play(ytId, seekTime) {
+	ytPlayer.loadPlaylist({list: 'PL2Vp3vLbv9xi-alVjmUYdvY79sri45X1R',
+                     index: ytId,
+                     startSeconds: seekTime
+                    });
+}
+function play2(ytId, seekTime) {
+	ytPlayer.loadPlaylist({list: 'PL2Vp3vLbv9xgIGSU2DjOgQtQlqlgMac0u',
+                     index: ytId,
+                     startSeconds: seekTime
+                    });
+}
+
+$(function() {
+	// サムネイル画像の埋め込み
+	$('#thumbnail').append(thumbInsert);
+
+	$(document).on('click', '#thumbnail a', function() {
+		ytId = $(this).attr('id');
+    if (ytId < 200) {
+      play(ytId, 0);
+    } else if(ytId>=200) {
+      ytId2 = ytId-200;
+      play2(ytId2,0);
+      
+    }
+		return false;
+	});
+});
+
+
+
+    </script>
+</html>
